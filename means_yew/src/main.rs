@@ -7,7 +7,7 @@ fn main()
 	let subject2 = Subject::subject(String::from("Algebra"), 12, 5);
 	student.add_subject(subject);
 	student.add_subject(subject2);
-	student.calculate_mean();
+	student.mean();
 	println!("{}", student.display());	
 
 	return;
@@ -90,14 +90,17 @@ impl Student
 	fn display(&self) ->	String
 	{
 		let mut str = String::new();
-		str = format!("{}Name: {}\nGraduation: {}\nMean: {:.2}", str,self.name, self.graduation, self.mean);
+		str = format!("{}Name: {}\nGraduation: {}\nMean: {:.2}",
+            str,self.name, self.graduation, self.mean);
 		return str;
 	}
-	/*
-	fn mean(&self) -> f32
+	
+	fn mean(&mut self) -> f32
 	{
-		self.mean
+		self.calculate_mean();
+        self.mean
 	}
+    /*
 	fn name(&self) -> String
 	{
 		self.name.clone()
